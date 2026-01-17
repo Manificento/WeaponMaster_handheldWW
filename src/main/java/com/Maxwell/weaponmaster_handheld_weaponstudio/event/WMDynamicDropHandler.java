@@ -23,17 +23,17 @@ public class WMDynamicDropHandler {
         long coreCount = 0;
         long scrollCount = 0;
         long shardCount = 0;
-        if (totalExpPool >= 2147483647L) {
-            infiniteCount = totalExpPool / 2147483647L;
-            totalExpPool %= 2147483647L;
-        }
-        if (totalExpPool >= 10000000) {
-            coreCount = totalExpPool / 10000000;
-            totalExpPool %= 10000000;
-        }
         if (totalExpPool >= 100000) {
-            scrollCount = totalExpPool / 100000;
+            infiniteCount = totalExpPool / 100000;
             totalExpPool %= 100000;
+        }
+        if (totalExpPool >= 10000) {
+            coreCount = totalExpPool / 10000;
+            totalExpPool %= 10000;
+        }
+        if (totalExpPool >= 5000) {
+            scrollCount = totalExpPool / 5000;
+            totalExpPool %= 5000;
         }
         if (totalExpPool >= 1000) {
             shardCount = totalExpPool / 1000;
